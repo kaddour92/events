@@ -1,0 +1,25 @@
+<div class="container-fluid" *ngIf="event">
+    <h1 class="display-4">{{event.id}}</h1>
+    <div class="row m-5">
+        <div class="col-12 col-md-4">
+            <img [src]="event.image.url" [height]="event.image.height" [width]="event.image.width"
+                 alt="No Image" class="img-fluid"/>
+        </div>
+        <div class="col-12 col-md-8">
+            <ul>
+                <li><span class="font-weight-bold">Name: </span>{{event.name}}</li>
+                <li><span class="font-weight-bold">Venue: </span>{{event.venue}}</li>
+                <li><span class="font-weight-bold">City: </span>{{event.city}} ({{event.countryCode}})</li>
+                <li><span class="font-weight-bold">Date: </span>{{event.date | date: 'fullDate'}} - {{event.time}}</li>
+                <li><span class="font-weight-bold">Type: </span>{{event.type}}</li>
+                <li><span class="font-weight-bold">Classification: </span>{{event.segment}}, {{event.genre}},
+                    {{event.subGenre}}
+                </li>
+                <li><span class="font-weight-bold">Info: </span>{{event.info}}</li>
+            </ul>
+        </div>
+        <h4 class="my-4"><span class="font-weight-bold">Obtain ticket: </span><a target="_blank" [href]="event.url">{{event.url}}</a>
+        </h4>
+    </div>
+    <button class="btn btn-primary" (click)="backToMainPage()"><i class="fa fa-arrow-left"></i> Back</button>
+</div>
